@@ -53,6 +53,9 @@ public class BoardController {
 	public void listAllGET() throws Exception{
 		logger.debug(" listAllGET() 실행 ");
 		
+		// 서비스 -> DAO 메서드 호출 (출력할 정보가져오기)
+		// Model 객체를 사용해서 정보를 저장
+		// 연결된 DB 정보 가져오기.
 		
 	}
 	
