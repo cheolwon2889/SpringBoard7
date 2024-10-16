@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwillbs.mapper.BoardMapper">
+	<!-- namespace를 사용해서 mapper 파일을 찾아오는 주소 설정 -->
+    <!-- 글쓰기 -->
+    <insert id="insertBoard">
+        inser into tbl_board(title, writer, content)
+        values(#{title}, #{writer}, #{content})
+    </insert>
+    <!-- 글쓰기 -->
+
+
+
+
+</mapper>
