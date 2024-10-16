@@ -1,5 +1,7 @@
 package com.itwillbs.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -10,25 +12,32 @@ import org.springframework.stereotype.Repository;
 import com.itwillbs.domain.BoardVO;
 
 @Repository
-public class BoardDAOImpl implements BoardDAO{
+public class BoardDAOImpl implements BoardDAO {
 
-    // 디비연결정보를 처리하는 객체를 주입사용
-    @Inject
-    private SqlSession sqlSession;
+	// 디비연결정보를 처리하는 객체를 주입사용
+	@Inject
+	private SqlSession sqlSession;
 
-    private static final Logger logger = LoggerFactory.getLogger(BoardDAOImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(BoardDAOImpl.class);
 
-    // Mapper namespace 정보 저장
+	// Mapper namespace 정보 저장
 	private static final String NAMESPACE = "com.itwillbs.mapper.BoardMapper";
 
-    @Override
-    public void createBoard(BoardVO vo) throws Exception {
-        // TODO Auto-generated method stub
-        logger.debug(" createBoard(BoardVO vo) 호출 ");
-        logger.debug(" 디비연결 - SQL 호출 - 실행 ");
+	@Override
+	public void createBoard(BoardVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		logger.debug(" createBoard(BoardVO vo) 호출 ");
+		logger.debug(" 디비연결 - SQL 호출 - 실행 ");
 
-        sqlSession.insert(NAMESPACE+".insertBoard", vo);
-        
-    }
-    
+		sqlSession.insert(NAMESPACE + ".insertBoard", vo);
+
+	}
+
+	@Override
+	public List<BoardVO> listAll() throws Exception {
+		logger.debug(" listAll() 호출 ");
+		
+		return sqlSession.selectList(NAMESPACE + ".listAll");
+	}
+
 }
